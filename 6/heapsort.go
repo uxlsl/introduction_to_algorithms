@@ -40,10 +40,9 @@ func build_max_heap(A []int) {
 
 func heapsort(A []int) {
 	build_max_heap(A)
-
-	for i := len(A) - 1; i > 0; i++ {
+	for i := len(A) - 1; i > 0; i-- {
 		A[i], A[0] = A[0], A[i]
-		max_heapify(A[:i], 1)
+		max_heapify(A[:i], 0)
 	}
 }
 
@@ -51,8 +50,7 @@ func main() {
 	A := [10]int{4, 1, 3, 2, 16, 9, 10, 14, 8, 7}
 	fmt.Println("before")
 	fmt.Println(A)
-	build_max_heap(A[:])
+	heapsort(A[:])
 	fmt.Println("after")
 	fmt.Println(A)
-	heapsort(A[:])
 }
